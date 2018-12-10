@@ -13,6 +13,8 @@ public class Demoguru99 {
 	    dg.login("mngr166052", "avaqenY");
 	    
 	   dg.addCustumer();
+	   
+	 System.out.println(dg.getCustomerId());  
 	    
 	    
 

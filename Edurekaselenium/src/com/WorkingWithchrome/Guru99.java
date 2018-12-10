@@ -30,25 +30,33 @@ System.out.println(driver.getTitle());
 	 uid.sendKeys(usid);
 	 
 	 driver.findElement(By.name("password")).sendKeys(password);
+	 
 	 driver.findElement(By.name("btnLogin")).click();
 	 
  }
+ 
  public void addCustumer() {
 	 driver.findElement(By.partialLinkText("New Customer")).click();
 	 driver.findElement(By.name("name")).sendKeys("gmathi");
 	 driver.findElement(By.xpath("//input[@value='f']")).click();
+	 driver.findElement(By.name("dob")).sendKeys("01/01/1987");
 	 driver.findElement(By.xpath("//textarea[@name='addr']")).sendKeys("270 adresss steet");
 	 driver.findElement(By.xpath("//input[@name='city']")).sendKeys("Chandler");
 	 driver.findElement(By.xpath("//input[@name='state']")).sendKeys("Arizona");
 	 driver.findElement(By.xpath("//input[@name='pinno']")).sendKeys("123456");
 	 driver.findElement(By.xpath("//input[@name='telephoneno']")).sendKeys("12345678");
+	
+	 
 	 String emailID="aa"+System.currentTimeMillis()+"@gmail.com";
+	
 	 System.out.println("emailID  :"+emailID);
+	 
+	 
 	 driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(emailID);
 	 
 	 driver.findElement(By.xpath("//input[@name='password']")).sendKeys("123456");
 	 
-	 driver.findElement(By.xpath("//input[@value='Submit']")).click();
+	 driver.findElement(By.name("sub")).click();
 	 
 	 
 	 
@@ -60,6 +68,15 @@ System.out.println(driver.getTitle());
 	 
 	 
  }
+ 
+ 
+  public String getCustomerId() {
+	  
+	String cusID= driver.findElement(By.xpath("//table[@id='customer']/tbody/tr[4]/td[2]")).getText();	
+	 
+	 return cusID;
+	  
+  }
 	
 	public void closebrowser() {
 		driver.close();
